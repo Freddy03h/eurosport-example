@@ -1,23 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  ActivityIndicator,
-  FlatList,
-} from 'react-native';
+import {View, StyleSheet, ActivityIndicator, FlatList} from 'react-native';
+
+import PlayerRowView from './PlayerRowView';
 
 function _keyExtractor(item) {
   return item.shortname; // assuming it's the id…
 }
 
-const renderPlayerRow = ({item: player}) => {
-  return (
-    <View>
-      <Text>{player.shortname}</Text>
-    </View>
-  );
-};
+function renderPlayerRow({item: player}) {
+  return <PlayerRowView player={player} />;
+}
 
 const PlayersList = () => {
   const [players, setPlayers] = useState(null);

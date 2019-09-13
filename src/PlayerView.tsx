@@ -1,12 +1,27 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {StyleSheet, ScrollView, Text} from 'react-native';
 
-const PlayerView = () => {
+function displayPlayerName(player) {
+  return `${player.firstname} ${player.lastname}`;
+}
+
+const PlayerView = ({navigation}) => {
+  const player = navigation.getParam('player');
   return (
-    <View>
-      <Text>PlayerView</Text>
-    </View>
+    <ScrollView style={styles.container}>
+      <Text>{displayPlayerName(player)}</Text>
+    </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+  },
+});
+
+PlayerView.navigationOptions = ({navigation}) => ({
+  headerTitle: displayPlayerName(navigation.getParam('player')),
+});
 
 export default PlayerView;
