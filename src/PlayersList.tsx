@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, ActivityIndicator, FlatList} from 'react-native';
 
 import PlayerRowView from './PlayerRowView';
+import Separator from './Separator';
 
 function _keyExtractor(item) {
   return item.shortname; // assuming it's the id…
@@ -36,6 +37,7 @@ const PlayersList = () => {
       style={styles.container}
       keyExtractor={_keyExtractor}
       renderItem={renderPlayerRow}
+      ItemSeparatorComponent={Separator}
     />
   );
 };

@@ -19,6 +19,10 @@ const AppStackNavigator = createStackNavigator(
     headerTransitionPreset: 'uikit',
     defaultNavigationOptions: {
       headerTruncatedBackTitle: 'Retour',
+      headerTintColor: 'white',
+      headerStyle: {
+        backgroundColor: '#151B4A',
+      },
     },
   },
 );
